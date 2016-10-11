@@ -18,9 +18,13 @@ protected:
 	private slots:
 	void startOrStopThreadA();
 	void startOrStopThreadB();
+	void startProducer();
+	void startConsumer();
 private:
 	Thread A;
 	Thread B;
+	Producer Producer;
+	Consumer Consumer;
 
 	Ui::ThreadsDialogClass ui;
 };

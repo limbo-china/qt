@@ -12,6 +12,9 @@ ThreadsDialog::ThreadsDialog(QWidget *parent)
 
 	connect(ui.threadAButton, SIGNAL(clicked()), this, SLOT(startOrStopThreadA()));
 	connect(ui.threadBButton, SIGNAL(clicked()), this, SLOT(startOrStopThreadB()));
+	connect(ui.producerButton, SIGNAL(clicked()), this, SLOT(startProducer()));
+	connect(ui.consumerButton, SIGNAL(clicked()), this, SLOT(startConsumer()));
+
 }
 
 ThreadsDialog::~ThreadsDialog()
@@ -44,4 +47,10 @@ void ThreadsDialog::closeEvent(QCloseEvent *event){
 	A.wait();
 	B.wait();
 	event->accept();
+}
+void ThreadsDialog::startProducer() {
+	Producer.start();
+}
+void ThreadsDialog::startConsumer() {
+	Consumer.start();
 }
