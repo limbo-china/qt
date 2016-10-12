@@ -11,7 +11,14 @@ class FTP : public QMainWindow
 public:
 	FTP(QWidget *parent = 0);
 	~FTP();
+	Ui::FTPClass getUiClass() { return ui; }
 
+	private slots:
+	void on_fileNameLineEdit_textChanged();
+	void on_selectPushButton_clicked();
+	void on_uploadPushButton_clicked();
+	void updateUploadProgress(qint64, qint64);
+	void slotFinished();
 private:
 	Ui::FTPClass ui;
 };
